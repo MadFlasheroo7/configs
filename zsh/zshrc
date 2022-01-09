@@ -6,7 +6,8 @@ export ZSH="/home/mad_flasher/.oh-my-zsh"
 export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORMTHEME=qt5ct
 export JAVA_HOME=/opt/java
-export PATH=/opt/java/bin/:$PATH
+export DOTNET_ROOT=$HOME/packages/dotnet
+export PATH=/opt/java/bin/:$PATH:$HOME/packages/vscode-offical/code/bin:$PATH:$HOME/packages/dotnet
 
 # few aliases to make my life easier
 alias las="ls -ashl"
@@ -115,3 +116,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 neofetch
+
