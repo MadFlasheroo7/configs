@@ -1,0 +1,22 @@
+export $(dbus-launch)
+export $(gnome-keyring-daemon --start)
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+pipewire &
+pipewire-pulse &
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
+
+pamixer --set-volume 100
+brillo -A 100
+setleds -D +num
+xgamma -bgamma 0.850
+~/dwm/dwmbar.sh &
+exec dwm
+#exec i3
