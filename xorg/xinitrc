@@ -2,6 +2,8 @@ export $(dbus-launch)
 export $(gnome-keyring-daemon --start)
 #eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 
+#feh --bg-scale ~/Downloads/nightwall.jpg
+picom --experimental-backends --config ~/.config/picom/picom.conf &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 pipewire &
 pipewire-pulse &
@@ -15,8 +17,12 @@ export GNOME_KEYRING_PID
 
 pamixer --set-volume 100
 brillo -A 100
-setleds -D +num
+#setleds -D +num
 xgamma -bgamma 0.850
-~/dwm/dwmbar.sh &
+wal -R &
+# for polybar to update to wal instantly
+~/.config/polybar/scripts/pywal.sh &
+# using polybar instead
+#~/dwm/dwmbar.sh &
 exec dwm
 #exec i3
